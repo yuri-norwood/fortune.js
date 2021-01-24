@@ -2,9 +2,10 @@
  * Creates and new Fortune.
  * @class
  * @param {string} file - an identifier of fortune formatted file.
+ * @param {object} options - an optional object of options.
  * @public
  */
-function Fortune(file) {
+function Fortune(file, options) {
 	if (file === undefined || file === null) { // 'file' must be given
 		throw new TypeError("File cannot be null.", "fortune.js");
 	} else if (file instanceof String) {
