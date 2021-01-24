@@ -2,6 +2,7 @@
  * Creates and new Fortune.
  * @class
  * @param {string} file - an identifier of fortune formatted file.
+ * @public
  */
 function Fortune(file) {
 	if (file === undefined || file === null) { // 'file' must be given
@@ -26,7 +27,22 @@ function Fortune(file) {
 }
 
 /**
- * Default options for the Fortune instance.
+ * Holds the selected fortune.
+ * @default
+ * @private
+ */
+Fortune.prototype._fortune = null;
+
+/**
+ * Holds the loaded fortunes.
+ * @default
+ * @private
+ */
+Fortune.prototype._fortunes = [];
+
+/**
+ * Instance options, allows changing settings of existing instance.
+ * @public
  */
 Fortune.prototype.Options = {
 	// TODO: Outline options, see man fortune (1)
@@ -34,14 +50,21 @@ Fortune.prototype.Options = {
 
 /**
  * Select a fortune and return it as a string.
+ * @this Fortune
+ * @see _fortune
  * @returns {string} the selected fortune text.
+ * @public
  */
 Fortune.prototype.Select = function () {
-	// TODO: Implement randomized fortune selection
+	var this._fortune = this._fortunes[Math.floor(Math.random() * this._fortunes.length)];
+	
+	return this._fortune;
 };
 
 /**
  * Select a fortune and send it to the console.
+ * @this Fortune
+ * @public
  */
 Fortune.prototype.Log = function () {
 	console.log(this.Select());
@@ -50,6 +73,8 @@ Fortune.prototype.Log = function () {
 /**
  * Sends a fortune to the given XML HTTP Request.
  * @param {XMLHttpRequest} xhr - The request to send the fortune to.
+ * @this Fortune
+ * @public
  */
 Fortune.prototype.Send = function (xhr) {
 	// TODO: Process 'xhr' and call 'xhr.send()'.
