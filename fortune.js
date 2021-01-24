@@ -13,7 +13,9 @@ function Fortune(file) {
 		if (regx.test(file)) { // is 'file' inline text?
 			this._fortunes = file.split(regx);
 		} else { // 'file' is URI to fortune text
-			// TODO: Read file as text
+			var text = ""; // TODO: Read file as text
+			
+			this._fortunes = text.split.(regx);
 		}
 	} else if (file instanceof Array) { // is 'file' list of fortunes?
 		// TODO: Process items as fortune list
