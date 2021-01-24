@@ -8,13 +8,13 @@ function Fortune(file) {
 	if (file === undefined || file === null) { // 'file' must be given
 		throw new TypeError("File cannot be null.", "fortune.js");
 	} else if (file instanceof String) {
-		if (/.*\n%\n.*/.test(file)) { // is 'file' inline text?
-			// TODO: Read text
-		} else if () { // is 'file' URI to fortune text?
+		var regx = /.*\n%\n.*/;
+
+		if (regx.test(file)) { // is 'file' inline text?
+			this._fortunes = file.split(regx);
+		} else { // 'file' is URI to fortune text
 			// TODO: Read file as text
 		}
-
-		// TODO: Split text items on '%'
 	} else if (file instanceof Array) { // is 'file' list of fortunes?
 		// TODO: Process items as fortune list
 	}
