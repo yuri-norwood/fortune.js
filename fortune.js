@@ -8,7 +8,7 @@
 function Fortune(file, options) {
 	if (file === undefined || file === null) { // 'file' must be given
 		throw new TypeError("File cannot be null.", "fortune.js");
-	} else if (file instanceof String) {
+	} else if (file instanceof String || typeof(file) === "string") {
 		var regx = /.*\n%\n.*/;
 
 		if (regx.test(file)) { // is 'file' inline text?
@@ -22,7 +22,20 @@ function Fortune(file, options) {
 		// TODO: Process items as fortune list
 	}
 
-	// TODO: Process options
+	// Process options
+	if (options != undefined && options != null) {
+		var optionKeys = Object.keys(this.Options);
+
+		// Get the canonical option names
+		for (var i = 0; i < optionKeys.length; i++) {
+			var optionKey = optionKeys[i];
+
+			// If the 'options' has the option name, then use it
+			if (options.hasOwnProperty(optionKey)) {
+				this.Options[optionKey] = options[optionKey];
+			}
+		}
+	}
 
 	// TODO: Select fortune item according to options
 
