@@ -1,0 +1,23 @@
+{
+  "name": "fortune.js",
+  "version": "1.0.0",
+  "description": "JavaScript Implementation of UNIX fortune",
+  "main": "fortune.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuri-norwood/fortune.js.git"
+  },
+  "keywords": [
+    "fortune",
+    "unix"
+  ],
+  "author": "Yuri Norwood",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/yuri-norwood/fortune.js/issues"
+  },
+  "homepage": "https://github.com/yuri-norwood/fortune.js#readme"
+}
